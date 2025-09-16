@@ -7,10 +7,15 @@ import type { Task } from '../types';
 
 export default function TaskCard({ task }: { task: Task }) {
   const { title } = task;
+
+  const onActionInTaskItem = (task: Task, time: number) => {
+    console.log(task.id, time);
+  };
+
   return (
-    <section>
+    <section className="task">
       <TaskTitle title={title} />
-      <TaskItem />
+      <TaskItem task={task} onAction={onActionInTaskItem} />
     </section>
   );
 }
